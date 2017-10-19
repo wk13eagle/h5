@@ -16,18 +16,9 @@ import Vue from 'vue' // 引入vue
 
 import Router from 'vue-router' // 引入vue-router
 import Vuex from 'vuex' // 引入Vuex
-import Loading from './components/dk-loading' // 引入loading组件
-import Alert from './components/dk-alert' // 引入alert组件
-import AlertFull from './components/dk-alert-full'
-import Ajax from './components/dk-ajax.js' // 引入ajax组件
-import URLTools from './components/get_url_value.js' // 引入url参数组件
 
 Vue.use(Router)
 Vue.use(Vuex)
-Vue.use(Loading)
-Vue.use(Alert)
-Vue.use(AlertFull)
-Vue.use(Ajax)
 
 /* 页面 */
 import PageList from './pages/pagelist.js'
