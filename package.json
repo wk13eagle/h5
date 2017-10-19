@@ -1,0 +1,19 @@
+{
+  "name": "h5",
+  "version": "0.0.1",
+  "description": "构建基于vue2的h5页面，主要用于手机端展示。",
+  "main": "meta.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wk13eagle/h5.git"
+  },
+  "keywords": [
+    "h5"
+  ],
+  "author": "K13",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wk13eagle/h5/issues"
+  },
+  "homepage": "https://github.com/wk13eagle/h5#readme"
+}

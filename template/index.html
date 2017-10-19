@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+
+      <transition :name="transitionName">
+        <keep-alive>
+          <router-view class="child-view"></router-view>
+        </keep-alive>
+      </transition>
+
+      <dk-loading></dk-loading>
+      <dk-alert></dk-alert>
+
+    </div>
+
+    <script src="config.js"></script>
+    <script src="dist/build.js"></script>
+  </body>
+</html>

@@ -1,0 +1,839 @@
+/* 全局 */
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  font: 1.3rem/1.5em Helvetica, sans-serif;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  font-size: 1.7rem;
+  color: #000;
+}
+
+input,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+input:focus {
+    outline: none;
+    color: #000;
+}
+
+input::-webkit-input-placeholder {
+  color: #b2b2b2;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  box-sizing: border-box;
+  padding: 0 1.3rem;
+}
+
+/* 按钮 */
+.btn {
+  width: 18rem;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.8rem;
+  display: block;
+}
+
+.btn_green {
+  background-image: linear-gradient(-72deg, #28cd9a 0%, #19b8e5 100%);
+}
+
+.btn_more {
+  color: #333;
+  font-size: 1.3rem;
+  background: #ebebeb;
+  display: block;
+  margin: 4rem auto;
+  height: 3rem;
+  line-height: 3rem;
+  width: 10rem;
+  color: #808080;
+  border-radius: 0.3rem;
+}
+
+.btn_more:active {
+  background: #e0e0e0;
+}
+
+/* 键盘 */
+.keybord {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.keybord > li {
+  height: 5.6rem;
+  line-height: 5.6rem;
+  text-align: center;
+  float: left;
+  width: 33.33%;
+  font-size: 2.4rem;
+  color: #262626;
+  position: relative;
+}
+
+.keybord > li:active {
+  background: #f7f7f7;
+}
+
+.keybord > li::before,
+.keybord > li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #d9d9d9;
+}
+
+.keybord > li::before {
+  width: 100%;
+  height: 1px;
+  left: 0;
+  transform: scaleY(0.5);
+  transform-origin: left top;
+}
+
+.keybord > li::after {
+  width: 1px;
+  height: 100%;
+  right: 0;
+  transform: scaleX(0.5);
+  transform-origin: right top;
+}
+
+.keybord > li:nth-child(3n)::after {
+  display: none;
+}
+
+.keybord > li > .del {
+  width: 1.9rem;
+  height: 1.9rem;
+  display: inline-block;
+  background: url("del_icon.png") no-repeat center;
+  background-size: 100% auto;
+}
+
+/* 彩色文字 */
+.color_text {
+  background-image: linear-gradient(90deg, #29C4F8 0%, #B24BF2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 分割线 */
+.dashed_line {
+  margin: 1rem 1.3rem 0 1.3rem;
+  display: block;
+  height: 0;
+  border-bottom: 1px dashed #dcdcdc;
+}
+
+.dashed_line_text {
+  position: relative;
+  text-align: center;
+  margin: 0 1.3rem;
+}
+
+.dashed_line_text > p {
+  display: inline-block;
+  padding: 0 1.5rem;
+  background: #f7f7f7;
+  position: relative;
+  z-index: 10;
+  font-size: 1.4rem;
+}
+
+.dashed_line_text::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  border-bottom: 1px dashed #dcdcdc;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+}
+
+/* 页面切换动画 */
+.child-view {
+  height: 100%;
+
+  position: absolute;
+  width: 100%;
+  /*height: 100%;*/
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  transition: all .5s cubic-bezier(.55,0,.1,1);
+
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+.slide-left-enter,
+.slide-right-leave-active,
+.slide-left-leave-active,
+.slide-right-enter {
+  /*position: absolute;*/
+  /*height: 100%;*/
+  /*overflow: hidden;*/
+
+  opacity: 0;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  -webkit-transform: translateX(5rem);
+  transform: translateX(5rem);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  -webkit-transform: translateX(-5rem);
+  transform: translateX(-5rem);
+}
+
+/* 充值 */
+.input_from,
+.input_from_text {
+  width: 100%;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  position: relative;
+}
+
+.input_from::before,
+.input_from_text::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  background: #fff;
+  transform: scale(0.5);
+  transform-origin: left top;
+  border: 1px solid #d9d9d9;
+}
+
+.input_from > input,
+.input_from_text > input {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 4.8rem;
+  box-sizing: border-box;
+  border: 0;
+  position: relative;
+  background-color: transparent;
+  padding: 0 1.3rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+.input_from > input::-webkit-input-placeholder {
+  font-size: 1.6rem;
+  color: #b2b2b2;
+}
+
+.input_from_text > p {
+  position: absolute;
+  top: 0;
+  right: 1.3rem;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.input_from_text > p > span {
+  color: #f82049;
+}
+
+.row3 {
+  overflow: hidden;
+  padding: 1.3rem 0;
+}
+
+.row3 > li {
+  float: left;
+  width: 33.33%;
+  font-size: 1.3rem;
+  color: #999;
+}
+
+.row3 > li:nth-child(2) {
+  text-align: center;
+}
+
+.row3 > li:last-child {
+  text-align: right;
+}
+
+.row3 > li > span {
+  color: #333;
+}
+
+.face_value {
+	overflow: hidden;
+	box-sizing: border-box;
+  background: #f3f3f3;
+  position: relative;
+  padding: 1.3rem;
+}
+
+.face_value::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #d9d9d9;
+  transform: scaleY(0.5);
+  transform-origin: left top;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.face_value::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #d9d9d9;
+  transform: scaleY(0.5);
+  transform-origin: left bottom;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.face_value > li {
+	box-sizing: border-box;
+	width: calc((100% - 1rem - 1rem) / 3);
+	float: left;
+  margin: 0.5rem 1rem 0.5rem 0;
+}
+
+.face_value > li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.face_value > li > div {
+	width: 100%;
+	height: 5.5rem;
+	border-radius: 0.4rem;
+	box-sizing: border-box;
+	text-align: center;
+  position: relative;
+}
+
+.face_value > li > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  transform: scale(0.5);
+  transform-origin: left top;
+  border-radius: 0.8rem;
+  background: #fff;
+
+}
+
+.face_value > li > div > p {
+	font-size: 1.8rem;
+	line-height: 1em;
+	padding: 1rem 0 0.5rem 0;
+  color: #333;
+  position: relative;
+}
+
+.face_value > li > div > span {
+	font-size: 1.2rem;
+	display: block;
+	line-height: 1em;
+  color: #929292;
+  position: relative;
+}
+
+.face_value > li > div > span > em {
+  color: #f82049;
+  font-style: normal;
+}
+
+.face_value > li.no > div > p,
+.face_value > li.no > div > span,
+.face_value > li.no > div > span > em {
+  color: #b3b3b3;
+}
+
+.face_value > li.current > div > p,
+.face_value > li.current > div > span {
+  color: #f82049;
+}
+
+.face_value > li.current > div::before {
+	border: 1px solid #f82049;
+}
+
+.face_value > li.current > div > em {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0.4rem 0 0;
+  overflow: hidden;
+}
+
+.face_value > li.current > div > em::after {
+  content: "";
+  width:0;
+  height:0;
+  border-width: 1.2rem 0 1.2rem 1.2rem;
+  border-style: solid;
+  border-color: #f82049 transparent transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.face_value > li > div.other {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face_value > li > div.other > p {
+  padding: 0;
+}
+
+.face_value > li:active > div::before {
+  background: #f7f7f7;
+}
+
+.history {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.unfixed {
+  position: static;
+  margin: 10rem auto 1.5rem auto;
+  display: block;
+}
+
+.history > a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #0a99ee;
+}
+
+/* 手机充值账单 */
+.history_list {
+
+}
+
+.history_list > h2 {
+  padding: 0 1.3rem;
+  background: #e6e6e6;
+  color: #333;
+  font-size: 1.3rem;
+  margin: 0;
+  font-size-adjust: none;
+  line-height: 1.8em;
+}
+
+.history_list > h2.current {
+  background: #19b7e4;
+  color: #fff;
+}
+
+.history_list > ul > li {
+  background: #fff;
+  position: relative;
+  padding: 1.3rem;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.history_list > ul > li::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #d9d9d9;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleY(0.5);
+  transform-origin: left bottom;
+  box-sizing: border-box;
+}
+
+.history_list > ul > li > div {
+  float: left;
+}
+
+.history_list > ul > li > .time {
+  color: #999;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  width: 3.8rem;
+}
+
+.history_list > ul > li > .time > p {
+  font-size: 1rem;
+  padding-top: 0.3rem;
+}
+
+.history_list > ul > li > .logo {
+  width: 3.6rem;
+  height: 3.6rem;
+  background: url("ydlogo.png") no-repeat center;
+  background-size: 100% auto;
+}
+
+.history_list > ul > li > .info {
+  font-size: 1.8rem;
+  color: #333;
+  width: calc(100% - 3.8rem - 3.6rem);
+  box-sizing: border-box;
+  padding-left: 1.3rem;
+}
+
+.history_list > ul > li > .info > p {
+  font-size: 1.4rem;
+  color: #999;
+  padding-top: 0.5rem;
+}
+
+.history_list > ul > li > .state {
+  font-size: 1.3rem;
+  color: #999;
+  position: absolute;
+  top: 1.3rem;
+  right: 1.3rem;
+}
+
+/* 二维码图片 */
+.qr_code_img {
+  width: 29rem;
+  height: 29rem;
+  margin: 3.5rem auto;
+  box-sizing: border-box;
+  padding: 1.2rem;
+  position: relative;
+}
+
+.qr_code_img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  transform: scale(0.5);
+  transform-origin: left top;
+  border-radius: 0.8rem;
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.1);
+}
+
+.qr_code_img > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+/* 电子券换微信红包 */
+.coupon {
+
+}
+
+.coupon > .portrait {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #999;
+  padding: 6rem 0 4rem 0;
+}
+
+.coupon > .portrait > span {
+  display: inline-block;
+  width: 6.4rem;
+  height: 6.4rem;
+  background: url("hb.png") no-repeat center;
+  background-size: 6.4rem auto;
+  vertical-align: middle;
+  margin-right: 2rem;
+}
+
+.coupon > .portrait > div {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2rem;
+  text-align: center;
+}
+
+.coupon > .portrait > div > p {
+  width: 5.9rem;
+  height: 5.9rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.5rem auto;
+}
+
+.coupon > .portrait > div > p > img {
+  display: block;
+  width: 100%;
+}
+
+.coupon > .portrait > div > span {
+  color: #4d4d4d;
+  font-size: 1.3rem;
+}
+
+.input_group {
+  background: #fff;
+  position: relative;
+}
+
+.input_group::before,
+.input_group > li::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #d9d9d9;
+  position: absolute;
+  left: 0;
+  transform: scaleY(0.5);
+  z-index: 10;
+}
+
+.input_group::before {
+  top: 0;
+  transform-origin: left top;
+}
+
+.input_group > li::after {
+  bottom: 0;
+  transform-origin: left bottom;
+}
+
+.input_group > li {
+  position: relative;
+  z-index: 1;
+  height: 5rem;
+  line-height: 5rem;
+  margin-left: 1.3rem;
+}
+
+.input_group > li > input {
+  display: block;
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 1.6rem;
+  color: #4d4d4d;
+  box-sizing: border-box;
+}
+
+.input_group > li > p {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+}
+
+.input_group > li > p.link {
+  color: #0a99ee;
+}
+
+.input_group > li.hb > input::after {
+  content: "元";
+  font-size: 1.3rem;
+}
+
+.input_group > li.hb > p {
+  font-size: 1.3rem;
+  color: #666;
+}
+
+.input_group > li.hb > p > span {
+  font-size: 2rem;
+  color: #f82049;
+}
+
+/* 兑换记录 */
+.coupon_history > ul > li {
+  background: #fff;
+  padding: 1.3rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.coupon_history > ul > li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #d9d9d9;
+  transform: scaleY(0.5);
+  transform-origin: left bottom;
+}
+
+.coupon_history > ul > li > .time {
+  color: #999;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  width: 3.8rem;
+  float: left;
+}
+
+.coupon_history > ul > li > .time > p {
+  font-size: 1rem;
+  padding-top: 0.3rem;
+}
+
+.coupon_history > ul > li > div {
+  position: relative;
+  float: right;
+  width: calc(100% - 3.8rem);
+}
+
+.coupon_history > ul > li > .t {
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.coupon_history > ul > li > .t > p > small {
+  font-size: 1.3rem;
+}
+
+.coupon_history > ul > li > .t > span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.3rem;
+}
+
+.coupon_history > ul > li > .t > span.red {
+  color: #f82049;
+}
+
+.coupon_history > ul > li > .t > span.gray {
+  color: #4d4d4d;
+}
+
+.coupon_history > ul > li > .b {
+  font-size: 1.3rem;
+  color: #999;
+}
+
+.coupon_history > ul > li > .b > span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /*width: 5.8rem;*/
+  line-height: 1em;
+  padding: 0.4rem 0.6rem;
+  /*height: 2.2rem;*/
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.3rem;
+  background: #fafafa;
+  font-size: 1.2rem;
+  color: #0a99ee;
+  text-align: center;
+}
+
+.coupon_history > ul > li > .b > span:active {
+  background: #ededed;
+}
+
+.coupon_history > ul > li > .b > span::before {
+  content: "";
+  display: inline-block;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: url("loading.png") no-repeat center;
+  background-size: auto 1.3rem;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.coupon_history > ul > li > .b > span.loading::before {
+  animation: myfirst 1s linear infinite;
+  -moz-animation: myfirst 1s linear infinite;	/* Firefox */
+  -webkit-animation: myfirst 1s linear infinite;	/* Safari 和 Chrome */
+  -o-animation: myfirst 1s linear infinite;	/* Opera */
+}
+
+@keyframes myfirst {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(-180deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@-moz-keyframes myfirst { /* Firefox */
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes myfirst { /* Safari 和 Chrome */
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@-o-keyframes myfirst { /* Opera */
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
