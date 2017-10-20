@@ -1,16 +1,3 @@
-// 重置样式
-import 'normalize-css'
-
-// 加载页面样式
-import './assets/page.css'
-
-// 计算根字号
-document.getElementsByTagName('html')[0].style.fontSize = document.body.clientWidth / 375 * 10 + 'px'
-
-// 引入jQuery
-import jQuery from 'jquery'
-window.$ = window.jQuery = jQuery
-
 /* 依赖库 */
 import Vue from 'vue' // 引入vue
 
@@ -61,19 +48,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-
-  localStorage.setItem("credential","q0sWC0GmccYI3U5CuIuRRgLBHYrIjWl01Wcp1iQeYM2KQsE-MawX5IyB-UNhhaJg");
   next();
-  return;//TODO  调试使用
-
-  if (localStorage.getItem('credential')){
-      next();
-  }else{
-    let token = URLTools("token");
-    let url = $config.loginURL.replace("{token}",token);
-
-    window.location.href=url;
-  }
 })
 
 
@@ -90,15 +65,15 @@ const store = new Vuex.Store({
   modules: modules,
   mutations: { // 共用
     changeState (state, local) {
-      console.log('变更前：' + state[local.page][local.state])
+      // console.log('变更前：' + state[local.page][local.state])
       state[local.page][local.state] = local.value
-      console.log('变更后：' + state[local.page][local.state])
+      // console.log('变更后：' + state[local.page][local.state])
     }
   }
 })
 
 /* 实例 */
-var vm = new Vue({
+const vm = new Vue({
   el: '#app',
   router,
   store,
@@ -119,6 +94,7 @@ var vm = new Vue({
       if (direction < 0) { // 后退
 
         this.transitionName = 'slide-right' // 设置相应动画
+        
       } else { // 前进
 
         this.transitionName = 'slide-left'// 设置相应动画

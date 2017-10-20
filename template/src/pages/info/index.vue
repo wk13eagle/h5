@@ -1,8 +1,6 @@
 <template>
   <div>
-
     info
-
   </div>
 </template>
 
@@ -14,23 +12,16 @@ export default {
 
     }
   },
-  mounted () {
-
-  },
-  computed: {
-
-    userInfo:{
-      get(){
-        return this.$store.state.recharge.userInfo
-      },
-      set(value){
-        this.$store.commit('recharge/setUserInfo', value)
-      }
-    }
-  },
   methods: {
 
-
+  },
+  beforeRouteEnter (to, from, next) {
+    alert('欢迎进入info页面！')
+    next()
   }
 }
 </script>
+
+<style>
+
+</style>
