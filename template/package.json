@@ -1,14 +1,15 @@
 {
-  "name": "{{ name }}",
-  "description": "{{ description }}",
-  "version": "{{ version }}",
-  "author": "{{ author }}",
+  "name": "{{name}}",
+  "description": "{{description}}",
+  "version": "{{version}}",
+  "author": "{{author}}>",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "vue": "^2.3.3",
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1"
@@ -20,6 +21,9 @@
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "jade": "^1.11.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1",

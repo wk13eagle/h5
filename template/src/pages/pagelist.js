@@ -1,5 +1,5 @@
-const pageList = {
-  list: {
+const pageList = { // 页面配置
+  list: { // 路由名称
     title: '列表', // 标题
     index: 1, // 页面层级
     scrollTop: 0, // 滚动条位置

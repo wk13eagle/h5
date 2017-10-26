@@ -39,9 +39,16 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'jquery': 'jquery'
     }
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    })
+  ],
   devServer: {
     historyApiFallback: true,
     noInfo: true
@@ -62,7 +69,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
+      sourceMap: true,
       compress: {
         warnings: false
       }
