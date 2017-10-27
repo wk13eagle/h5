@@ -2,7 +2,7 @@
   <div>
 
     <p type="button">这是本页store中的test值：\{{ test1 }}</p>
-    <p type="button">这是info页store中的test值：{{ test2 }}</p>
+    <p type="button">这是info页store中的test值：\{{ test2 }}</p>
     <button type="button" @click="fn1">点击我触发本页store中的mutations</button>
     <button type="button" @click="fn2">点击我触发info页store中的mutations</button>
     <button type="button" @click="fn3">点击我触发所有页面mutations</button>
