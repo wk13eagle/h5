@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   div
     p info
 </template>
@@ -30,5 +30,5 @@ div
   background #f5f5f5
   box-sizing border-box
   padding $(10px)
-  
+
 </style>
