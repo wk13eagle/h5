@@ -120,7 +120,7 @@ const alert$ = {
                   '<div class="dk_alert_content" v-bind:class=themeKind() v-show="show">' +
                     '<div class="dk_alert_msg" v-bind:class="{dk_alert_hide : !!!msg[0], dk_alert_left : msg[1] === \'left\', dk_alert_right : msg[1] === \'right\', dk_alert_center : msg[1] === \'center\'}">' +
 
-                      {{#if_or false}}
+                      {{#if_or msg}}
                       '{{ msg[0] }}' +
                       {{/if_or}}
 
