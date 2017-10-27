@@ -121,11 +121,11 @@ const alert$ = {
                       '{' + '{' + 'msg[0]' + '}' + '}' +
                     '</div>' +
                     '<div class="dk_alert_info" v-bind:class="{dk_alert_hide : !!!info[0], dk_alert_left : info[1] === \'left\', dk_alert_right : info[1] === \'right\', dk_alert_center : info[1] === \'center\'}">' +
-                      '{{ info[0] }}' +
+                      '{' + '{' + 'info[0]' + '}' + '}' +
                     '</div>' +
                     '<div class="dk_alert_btn" v-bind:class="{dk_alert_hide : !!auto, dk_alert_left : btn.align === \'left\', dk_alert_right : btn.align === \'right\', dk_alert_center : btn.align === \'center\'}">' +
                       '<span v-for="(item, index) in btn.list" v-on:click.prevent="btnFn(index)">' +
-                        '{{ item.title }}' +
+                        '{' + '{' + 'item.title' + '}' + '}' +
                       '</span>' +
                     '</div>' +
                   '</div>' +
