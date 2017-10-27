@@ -8,6 +8,7 @@ module.exports = {
     //   return options.inverse(this);
     // }
     "if_or": function (v1, options) {
+      console.log(v1)
       if (v1) {
         return options.fn(this);
       }
