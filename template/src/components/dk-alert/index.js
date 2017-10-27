@@ -117,7 +117,7 @@ const alert$ = {
     Vue.component('dk-alert', {
       template: '<transition v-on:after-enter="autoHide" v-on:after-leave="reset" name="dk-slide">' +
 
-                  {{#if_or false}}
+                  '{{#if_or false}}' +
 
                   '<div class="dk_alert_content" v-bind:class=themeKind() v-show="show">' +
                     '<div class="dk_alert_msg" v-bind:class="{dk_alert_hide : !!!msg[0], dk_alert_left : msg[1] === \'left\', dk_alert_right : msg[1] === \'right\', dk_alert_center : msg[1] === \'center\'}">' +
@@ -133,7 +133,7 @@ const alert$ = {
                     '</div>' +
                   '</div>' +
 
-                  {{/if_or}}
+                  '{{/if_or}}' +
 
                 '</transition>',
       data () {
