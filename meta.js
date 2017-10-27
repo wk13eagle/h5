@@ -1,15 +1,7 @@
 module.exports = {
   "helpers": {
-    // "if_or": function (v1, v2, options) {
-    //   if (v1 || v2) {
-    //     return options.fn(this);
-    //   }
-    //
-    //   return options.inverse(this);
-    // }
-    "if_or": function (v1, options) {
-      console.log(v1)
-      if (v1) {
+    "if_or": function (v1, v2, options) {
+      if (v1 || v2) {
         return options.fn(this);
       }
 
