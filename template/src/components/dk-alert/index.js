@@ -116,6 +116,9 @@ const alert$ = {
     // 全局组件
     Vue.component('dk-alert', {
       template: '<transition v-on:after-enter="autoHide" v-on:after-leave="reset" name="dk-slide">' +
+
+                  '{{#if_or true}}' +
+
                   '<div class="dk_alert_content" v-bind:class=themeKind() v-show="show">' +
                     '<div class="dk_alert_msg" v-bind:class="{dk_alert_hide : !!!msg[0], dk_alert_left : msg[1] === \'left\', dk_alert_right : msg[1] === \'right\', dk_alert_center : msg[1] === \'center\'}">' +
                       '{{ msg[0] }}' +
@@ -129,6 +132,9 @@ const alert$ = {
                       '</span>' +
                     '</div>' +
                   '</div>' +
+
+                  '{{/if_or}}' +
+
                 '</transition>',
       data () {
         return data
