@@ -1,0 +1,198 @@
+@import "../base.styl";
+
+.dk_alert_content
+  width 100%
+  box-sizing border-box
+  color #fff
+  text-align left
+  position fixed
+  left 0
+  top 0
+
+  > .dk_alert_msg
+      font-size $(30px)
+      line-height 1.6em
+      color #fff
+      padding $(10px) $(26px)
+
+  > .dk_alert_info
+      font-size $(26px)
+      line-height 1.6em
+      padding $(26px)
+      text-align justify
+      max-height $(400px)
+      max-height 40vh
+      overflow-y auto
+      -webkit-overflow-scrolling touch
+
+  > .dk_alert_btn
+      padding $(16px) $(26px)
+      display flex
+      box-sizing border-box
+
+      > span
+          line-height $(48px)
+          padding 0 $(26px)
+          min-width 2em
+          font-size $(26px)
+          border-radius $(8px)
+          text-align center
+          margin 0 $(16px)
+
+          &:first-child
+              margin-left 0
+
+          &:last-child
+              margin-right 0
+
+      &.dk_alert_hide
+          display none
+
+      &.dk_alert_left
+          justify-content flex-start
+
+      &.dk_alert_center
+          justify-content center
+
+      &.dk_alert_right
+          justify-content flex-end
+
+      &.dk_alert_between
+          display flex
+          justify-content space-between
+
+  &.theme1
+      background rgba(255,240,241,0.96)
+      color #e80116
+      box-shadow 0 $(4px) $(16px) rgba(232,1,22,0.15)
+
+      > .dk_alert_msg
+          background #e80116
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(232,1,22,0.2)
+
+          > span
+              border 1px solid #e80116
+
+              &:active
+                  background #e80116
+                  color #fff
+
+  &.theme2
+      background rgba(255,245,240,0.96)
+      color #fe3600
+      box-shadow 0 $(4px) $(16px) rgba(254,54,0,0.15)
+
+      > .dk_alert_msg
+          background #fe3600
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(254,54,0,0.2)
+
+          > span
+              border 1px solid #fe3600
+
+              &:active
+                  background #fe3600
+                  color #fff
+
+  &.theme3
+      background rgba(255,249,240,0.96)
+      color #ff6c00
+      box-shadow 0 $(4px) $(16px) rgba(255,108,0,0.15)
+
+      > .dk_alert_msg
+          background #ff6c00
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(255,108,0,0.2)
+
+      > .dk_alert_btn
+          > span
+              border 1px solid #ff6c00
+
+              &:active
+                  background #ff6c00
+                  color #fff
+
+  &.theme4
+      background rgba(240,255,248,0.96)
+      color #007c46
+      box-shadow 0 $(4px) $(16px) rgba(0,124,70,0.15)
+
+      > .dk_alert_msg
+          background #007c46
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(0,124,70,0.2)
+
+          > span
+              border 1px solid #007c46
+
+              &:active
+                  background #007c46
+                  color #fff
+
+  &.theme5
+      background rgba(240,241,255,0.96)
+      color #2a36af
+      box-shadow 0 $(4px) $(16px) rgba(42,54,175,0.15)
+
+      > .dk_alert_msg
+          background #2a36af
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(42,54,175,0.2)
+
+          > span
+              border 1px solid #2a36af
+
+              &:active
+                  background #2a36af
+                  color #fff
+
+  &.theme6
+      background rgba(240,251,255,0.96)
+      color #008ac3
+      box-shadow 0 $(4px) $(16px) rgba(0,138,195,0.15)
+
+      > .dk_alert_msg
+          background #008ac3
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(0,138,195,0.2)
+
+          > span
+              border 1px solid #008ac3
+
+              &:active
+                  background #008ac3
+                  color #fff
+
+  &.theme7
+      background rgba(245,240,255,0.96)
+      color #4c2993
+      box-shadow 0 $(4px) $(16px) rgba(76,41,147,0.15)
+
+      > .dk_alert_msg
+          background #4c2993
+
+      > .dk_alert_btn
+          border-top 1px dotted rgba(76,41,147,0.2)
+
+          > span
+              border 1px solid #4c2993
+
+              &:active
+                  background #4c2993
+                  color #fff
+
+.dk-slide-enter-active,
+.dk-slide-leave-active
+  transition all 0.4s ease-in-out
+
+.dk-slide-enter,
+.dk-slide-leave-active
+  top -100%
+  opacity 0

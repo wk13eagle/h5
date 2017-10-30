@@ -21,14 +21,14 @@ export default {
 }
 </script>
 
-
 <style lang="stylus" scoped>
 
 @import "../../components/base.styl";
+scale = 1
 
 div
   background #f5f5f5
   box-sizing border-box
-  padding $(10px)
+  padding $(13px)
 
 </style>

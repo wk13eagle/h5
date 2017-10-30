@@ -1,4 +1,7 @@
-// 默认宽度375, dpr为1的设计稿, 基字号10px
+// 默认宽度750, dpr为2的设计稿, 基字号10px
+scale = 2; // 设计稿缩放倍数
+baseFontSize = 10; // 基字号, 默认10px
+
 $(num) {
-	unit(num / 1 / 10, rem);
+	unit(num / scale / baseFontSize, rem);
 }

@@ -1,4 +1,4 @@
-import './module.css'
+import './module.styl'
 
 const loading$ = {
   install: function (Vue, options) {

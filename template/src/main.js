@@ -1,5 +1,13 @@
 // 计算根字号
-document.getElementsByTagName('html')[0].style.fontSize = document.body.clientWidth / 375 * 10 + 'px'
+// 默认宽度750, dpr为2的设计稿, 基字号10px
+const pageConfig = {
+  baseWidth: 750,
+  scale: 2,
+  baseFontSize: 10
+}
+
+const _baseFontSize = document.body.clientWidth / (pageConfig.baseWidth / pageConfig.scale) * pageConfig.baseFontSize
+document.getElementsByTagName('html')[0].style.fontSize = _baseFontSize + 'px'
 
 /* 依赖库 */
 import Vue from 'vue' // 引入vue
